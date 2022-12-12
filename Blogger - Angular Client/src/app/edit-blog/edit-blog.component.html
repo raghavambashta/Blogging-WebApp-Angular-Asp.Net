@@ -1,0 +1,69 @@
+<app-user-nav-bar></app-user-nav-bar>>
+
+<body>
+  <div class="bg-container">
+    <div class="d-flex justify-content-center signBody align-middle">
+      <div style="background-color: #e1ffb1" class="card loginCard">
+        <header style="background-color: #e1ffb1" class="card-header">
+          <h4 class="card-title mt-2 text-center">Update your Blog</h4>
+        </header>
+        <article class="card-body">
+          <form [formGroup]="updateBlogForm" (ngSubmit)="EditBlog()">
+            <div class="form-group">
+              <input
+                required="Please enter your blog title"
+                type="text"
+                class="form-control editTitle"
+                placeholder="Give your blog a title"
+                formControlName="Title"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                required="Please enter your blog description"
+                class="form-control editBody"
+                placeholder="Write your blog"
+                formControlName="Description"
+              ></textarea>
+            </div>
+            <input hidden formControlName="Author" />
+
+            <div class="form-group">
+              <span *ngFor="let item of genreList">
+                <label for="{{ item.name }}"
+                  >{{ item.name }} &nbsp;&nbsp;</label
+                >
+                <input
+                  id="{{ item.name }}"
+                  type="checkbox"
+                  name="{{ item.name }}"
+                  (change)="onChange($event, item.name)"
+                />
+                <span>&nbsp;&nbsp; &nbsp;&nbsp;</span>
+              </span>
+            </div>
+
+            <div class="form-group">
+              <span>Select a date: </span>
+              <input
+                required
+                style="margin-top: 10px"
+                type="date"
+                formControlName="PostedOn"
+              />
+            </div>
+            <div style="margin-top: 10px" class="form-group">
+              <button
+                [disabled]="updateBlogForm.invalid"
+                type="submit"
+                class="btn btn-success btn-block"
+              >
+                Update
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</body>

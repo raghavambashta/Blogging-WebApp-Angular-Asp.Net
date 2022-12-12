@@ -1,0 +1,165 @@
+<!-- <app-user-nav-bar></app-user-nav-bar>
+
+<div style="margin-top: 150px">
+  <div class="container mt-4">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-sm-12 col-md-4">
+        <div class="mb-3 card">
+          <div class="card-body">
+            <div class="widget-chart widget-chart2 text-left p-0">
+              <div class="widget-chat-wrapper-outer">
+                <div class="widget-chart-content">
+                  <div class="widget-chart-flex">
+                    <div class="widget-numbers mt-0">
+                      <div class="widget-chart-flex">
+                        <div>
+                          <span>name</span>
+                        </div>
+                        <div
+                          class="widget-title ml-2 opacity-5 font-size-lg text-muted"
+                        >
+                          <p class="text-break">email</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0"
+                >
+                  <div
+                    id="dashboard-sparkline-carousel-3"
+                    style="min-height: 120px"
+                  >
+                    <img
+                      src="https://cdn1.iconfinder.com/data/icons/business-users/512/circle-512.png"
+                      class="w-35"
+                    />
+                  </div>
+                  <div class="resize-triggers">
+                    <div class="expand-trigger">
+                      <div style="width: 296px; height: 131px"></div>
+                    </div>
+                    <div class="contract-trigger"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-12 col-md-3">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div
+            class="card-shadow-primary mb-3 widget-chart widget-chart2 text-left card"
+          >
+            <div class="widget-chat-wrapper-outer">
+              <div class="widget-chart-content">
+                <h6 class="widget-subheading">Blogs</h6>
+                <div class="widget-chart-flex">
+                  <div class="widget-numbers mb-0 w-100">
+                    <div class="widget-chart-flex">
+                      <div class="fsize-4"></div>
+                      <div class="ml-auto">
+                        <div
+                          class="widget-title ml-auto font-size-lg font-weight-normal text-muted"
+                        >
+                          <span class="text-success pl-2"
+                            ><i class="fas fa-pen-nib"></i
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+          <div
+            class="card-shadow-primary mb-3 widget-chart widget-chart2 text-left card"
+          >
+            <div class="widget-chat-wrapper-outer">
+              <div class="widget-chart-content">
+                <h6 class="widget-subheading">Comments</h6>
+                <div class="widget-chart-flex">
+                  <div class="widget-numbers mb-0 w-100">
+                    <div class="widget-chart-flex">
+                      <div class="fsize-4"></div>
+                      <div class="ml-auto">
+                        <div
+                          class="widget-title ml-auto font-size-lg font-weight-normal text-muted"
+                        >
+                          <span class="text-success pl-2">
+                            <i class="fas fa-comments"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+<!-- <div class="card p-4 justify-content-center d-flex">
+        <h3 class="mb-4 text-center">Blogs</h3>
+        <div class="text-center">
+          <span class="text-danger mr-2 text-center"
+            ><i class="far fa-sad-tear fa-lg"></i
+          ></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="bg-container">
+  <app-user-nav-bar></app-user-nav-bar>
+
+  <div
+    style="
+      margin-top: 20vh;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: larger;
+    "
+  >
+    <div class="container" style="background-color: azure; border-radius: 7px">
+      <table class="table">
+        <thead>
+          <tr style="color: rgb(209, 8, 199)">
+            <th>Name</th>
+            <th><div style="margin-left: 35px">Email Id</div></th>
+            <th><div style="margin-left: 250px">Password</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userlist">
+            <td>{{ user.userName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+
+            <td>
+              <button
+                mwlConfirmationPopover
+                placement="left"
+                (confirm)="DeleteUser(user.id)"
+                (cancel)="cancelClicked = true"
+                class="btn btn-danger"
+                type="button"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

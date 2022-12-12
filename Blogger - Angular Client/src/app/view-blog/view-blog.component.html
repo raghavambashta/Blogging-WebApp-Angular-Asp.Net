@@ -1,0 +1,63 @@
+<app-user-nav-bar></app-user-nav-bar>
+
+<body
+  style="
+    overflow: hidden;
+    object-fit: cover;
+    background-size: cover;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1544716278-e513176f20b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80');
+  "
+>
+  >
+
+  <div class="d-flex justify-content-center signBody align-middle">
+    <div style="margin-top: 2px" class="card loginCard">
+      <article class="card-body">
+        <form>
+          <div class="form-group">
+            <div
+              readonly
+              style="background-color: lightyellow"
+              type="text"
+              class="form-control editTitle"
+            >
+              {{ blog.title }}
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea
+              readonly
+              style="background: none; height: 450px"
+              class="form-control editBody"
+              value="{{ blog.description }}"
+            >
+            <!-- {{ blog.description }} -->
+            </textarea>
+          </div>
+          <div style="padding-top: 5px" class="form-group">
+            <p>
+              <span style="color: #150050; font-weight: bolder"
+                >Related Topics:</span
+              >
+              <span style="color: #150050">&nbsp; {{ blog.author }}</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>
+              <span style="color: #ff884b; font-weight: bolder"
+                >Posted On:</span
+              >
+              <span style="color: #ff884b">&nbsp; {{ blog.postedOn }}</span>
+            </p>
+          </div>
+          <div class="form-group">
+            <button routerLink="/userhome" class="btn btn-success btn-block">
+              Back
+            </button>
+          </div>
+        </form>
+      </article>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,35 @@
+.nav1 {
+  margin: 0;
+  padding-right: 15px;
+  background-color: #fefbf6;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.logo {
+  font-size: 30px;
+  padding: 5px 10px;
+  font-weight: 1000;
+  color: #00008b;
+  font-size: x-large;
+}
+.nav-list-container {
+  display: flex;
+  justify-content: end;
+}
+.navli1 a {
+  display: block;
+  color: #7f5283;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bolder;
+}
+.navli1 a:hover {
+  background-color: rgba(0, 0, 0, 0.488);
+  color: #fff;
+}

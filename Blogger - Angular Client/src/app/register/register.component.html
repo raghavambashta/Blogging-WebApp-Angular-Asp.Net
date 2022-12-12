@@ -1,0 +1,118 @@
+<app-nav-bar></app-nav-bar>
+<div class="bg-container">
+  <div class="center">
+    <form
+      [formGroup]="registerForm"
+      style="background-color: #fefbf6"
+      class="border p-3 rounded-3"
+      (ngSubmit)="registerUser(register)"
+    >
+      <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+          <span class="fs-3">Create an account</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="UserName"
+            [(ngModel)]="register.UserName"
+          />
+
+          <small
+            *ngIf="
+              (registerForm.get('UserName')?.touched ||
+                registerForm.get('UserName')?.dirty) &&
+              registerForm.get('UserName')?.invalid
+            "
+            class="text-danger"
+            >Please enter your Name</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="name" class="form-label">Email Id</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            formControlName="Email"
+            [(ngModel)]="register.Email"
+          />
+
+          <small
+            *ngIf="
+              (registerForm.get('Email')?.touched ||
+                registerForm.get('Email')?.dirty) &&
+              registerForm.get('Email')?.invalid
+            "
+            class="text-danger"
+            >Please enter valid Email ID</small
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="pwd" class="form-label">Password</label>
+          <input
+            maxlength="15"
+            type="password"
+            class="form-control"
+            id="pwd"
+            formControlName="Password"
+            [(ngModel)]="register.Password"
+          />
+          <small>Password must be 8 to 15 characters long</small><br />
+          <small
+            *ngIf="
+              (registerForm.get('Password')?.touched ||
+                registerForm.get('Password')?.dirty) &&
+              registerForm.get('Password')?.invalid
+            "
+            class="text-danger"
+            >Invalid Password</small
+          >
+        </div>
+
+        <div class="col mb-3">
+          <label for="rpwd" class="form-label">Repeat Password</label>
+          <input
+            maxlength="15"
+            type="password"
+            class="form-control"
+            id="rpwd"
+            formControlName="RPassword"
+          />
+          <small
+            *ngIf="
+              (registerForm.get('RPassword')?.touched ||
+                registerForm.get('RPassword')?.dirty) &&
+              registerForm.get('RPassword')?.invalid
+            "
+            class="text-danger"
+            >Password did not match</small
+          >
+        </div>
+      </div>
+      <div class="row p-3">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              [disabled]="registerForm.invalid"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

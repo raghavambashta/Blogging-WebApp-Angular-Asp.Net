@@ -1,0 +1,81 @@
+<app-nav-bar></app-nav-bar>
+<div class="bg-container">
+  <div>
+    <div class="center">
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="loginSubmitted(login)"
+        class="border p-3 rounded-3"
+        style="background-color: #fefbf6"
+      >
+        <div class="row g-0">
+          <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Login</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col mb-3">
+            <label for="email" class="form-label">Email Id</label>
+            <input
+              type="email"
+              class="form-control"
+              id="id"
+              formControlName="Email"
+              [(ngModel)]="login.Email"
+            />
+            <small
+              *ngIf="
+                (loginForm.get('Email')?.touched ||
+                  loginForm.get('Email')?.dirty) &&
+                loginForm.get('Email')?.invalid
+              "
+              class="text-danger"
+              >Please enter valid Email ID</small
+            >
+          </div>
+          <div class="col mb-3">
+            <label for="pwd" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pdw"
+              formControlName="Password"
+              [(ngModel)]="login.Password"
+            />
+
+            <small
+              *ngIf="
+                (loginForm.get('Password')?.touched ||
+                  loginForm.get('Password')?.dirty) &&
+                loginForm.get('Password')?.invalid
+              "
+              class="text-danger"
+              >Please enter valid Password</small
+            >
+          </div>
+        </div>
+
+        <div class="row p-3">
+          <div class="col-6 offset-3">
+            <div class="d-grid">
+              <button
+                [disabled]="loginForm.invalid"
+                class="btn btn-primary"
+                type="submit"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <span>Don't have an account?&nbsp;</span>
+            <a routerLink="/register">Register now!</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

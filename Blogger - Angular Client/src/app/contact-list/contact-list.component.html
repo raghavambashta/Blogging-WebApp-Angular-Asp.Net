@@ -1,0 +1,46 @@
+<div class="bg-container">
+  <app-nav-bar></app-nav-bar>
+
+  <div
+    style="
+      margin-top: 20vh;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: larger;
+    "
+  >
+    <div class="container" style="background-color: azure; border-radius: 7px">
+      <table class="table">
+        <thead>
+          <tr style="color: rgb(209, 8, 199)">
+            <th>Name</th>
+            <th><div style="margin-left: 35px">Email Id</div></th>
+            <th>Phone No.</th>
+            <th>Gender</th>
+            <th>Subject</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of contactList">
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.gender }}</td>
+            <td>{{ contact.subject }}</td>
+            <td>{{ contact.message }}</td>
+
+            <td>
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="DeleteContact(contact.id)"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

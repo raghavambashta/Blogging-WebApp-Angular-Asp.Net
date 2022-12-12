@@ -1,0 +1,96 @@
+<app-user-nav-bar></app-user-nav-bar>>
+
+<body>
+  <div class="bg-container">
+    <div class="d-flex justify-content-center signBody align-middle">
+      <div style="background-color: #e1ffb1" class="card loginCard">
+        <header style="background-color: #e1ffb1" class="card-header">
+          <h4 class="card-title mt-2 text-center">Create Your Blog</h4>
+        </header>
+        <article class="card-body">
+          <form (ngSubmit)="postBlog(blog)" [formGroup]="addBlogForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control editTitle"
+                placeholder="Give your blog a title"
+                formControlName="Title"
+                [(ngModel)]="blog.Title"
+              />
+              <small
+                *ngIf="
+                  (addBlogForm.get('Title')?.touched ||
+                    addBlogForm.get('Title')?.dirty) &&
+                  addBlogForm.get('Title')?.invalid
+                "
+                class="text-danger"
+              >
+                Please enter the title
+              </small>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control editBody"
+                placeholder="Write your blog"
+                formControlName="Description"
+                [(ngModel)]="blog.Description"
+              ></textarea>
+              <small
+                *ngIf="
+                  (addBlogForm.get('Description')?.touched ||
+                    addBlogForm.get('Description')?.dirty) &&
+                  addBlogForm.get('Description')?.invalid
+                "
+                class="text-danger"
+              >
+                Please enter blog content
+              </small>
+            </div>
+
+            <div class="form-group">
+              <span *ngFor="let item of genreList">
+                <label for="{{ item.name }}"
+                  >{{ item.name }} &nbsp;&nbsp;</label
+                >
+                <input
+                  id="{{ item.name }}"
+                  type="checkbox"
+                  name="{{ item.name }}"
+                  (change)="onChange($event, item.name)"
+                />
+                <span>&nbsp;&nbsp; &nbsp;&nbsp;</span>
+              </span>
+            </div>
+
+            <div class="form-group">
+              <span>Select a date: </span>
+              <input
+                style="margin-top: 10px"
+                type="date"
+                formControlName="PostedOn"
+                [(ngModel)]="blog.PostedOn"
+              />
+            </div>
+            <div style="margin-top: 10px" class="form-group">
+              <button
+                [disabled]="addBlogForm.invalid"
+                type="submit"
+                class="btn btn-success btn-block"
+              >
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <button
+                style="margin-left: 20px"
+                type="reset"
+                class="btn btn-secondary btn-block"
+              >
+                <i class="fa-solid fa-x"></i>
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</body>

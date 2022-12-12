@@ -1,0 +1,62 @@
+<app-user-nav-bar></app-user-nav-bar>
+<div class="bg-container">
+  <app-user-nav-bar></app-user-nav-bar>
+
+  <div
+    style="
+      margin-top: 20vh;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: larger;
+    "
+  >
+    <div class="container" style="background-color: azure; border-radius: 7px">
+      <table class="table">
+        <thead>
+          <tr style="color: rgb(209, 8, 199)">
+            <th width="70%">
+              <div style="padding-left: 180px">Title</div>
+            </th>
+            <th>Posted On</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of blogList">
+            <td>{{ blog.title }}</td>
+            <td>{{ blog.postedOn }}</td>
+
+            <td>
+              <button
+                (click)="ViewBlog(blog.id)"
+                class="btn btn-info"
+                type="button"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                (click)="EditBlog(blog.id)"
+                class="btn btn-warning"
+                type="button"
+              >
+                <i class="fa-solid fa-pencil"></i>
+              </button>
+            </td>
+            <td>
+              <button
+                mwlConfirmationPopover
+                placement="left"
+                (confirm)="DeleteBlog(blog.id)"
+                (cancel)="cancelClicked = true"
+                class="btn btn-danger"
+                type="button"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

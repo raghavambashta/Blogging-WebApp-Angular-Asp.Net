@@ -1,0 +1,147 @@
+<app-nav-bar></app-nav-bar>
+<body>
+  <form [formGroup]="contactform" (ngSubmit)="contactSubmitted(contact)">
+    <div class="wrapper">
+      <div class="title">
+        <h1>Get in Touch...</h1>
+      </div>
+      <div class="contact-form">
+        <div class="input-fields">
+          <div class="row">
+            <div style="margin-top: 5px" class="col-4">
+              <select
+                style="color: #c5ecfd"
+                class="input"
+                name="title"
+                id="title"
+              >
+                <option style="color: black" value="issue">Mr.</option>
+                <option style="color: black" value="user">Ms.</option>
+                <option style="color: black" value="feedback">Mrs.</option>
+              </select>
+            </div>
+            <div>
+              <input
+                formControlName="Name"
+                [(ngModel)]="contact.Name"
+                type="text"
+                class="input col"
+                placeholder="Name"
+              />
+              <small
+                *ngIf="
+                  (contactform.get('Name')?.touched ||
+                    contactform.get('Name')?.dirty) &&
+                  contactform.get('Name')?.invalid
+                "
+                class="text-danger"
+                >Please enter your Name</small
+              >
+            </div>
+          </div>
+          <div>
+            <input
+              formControlName="Email"
+              [(ngModel)]="contact.Email"
+              type="text"
+              class="input"
+              placeholder="Email Id"
+            />
+            <small
+              *ngIf="
+                (contactform.get('Email')?.touched ||
+                  contactform.get('Email')?.dirty) &&
+                contactform.get('Email')?.invalid
+              "
+              class="text-danger"
+              >Please enter your valid Email Id</small
+            >
+          </div>
+          <div>
+            <input
+              formControlName="Phone"
+              [(ngModel)]="contact.Phone"
+              type="text"
+              class="input"
+              placeholder="Phone"
+            />
+            <small
+              *ngIf="
+                (contactform.get('Phone')?.touched ||
+                  contactform.get('Phone')?.dirty) &&
+                contactform.get('Phone')?.invalid
+              "
+              class="text-danger"
+              >Please enter your Phone Number</small
+            >
+          </div>
+
+          <div style="color: #c5ecfd">
+            &nbsp;&nbsp;
+            <input
+              formControlName="Gender"
+              [(ngModel)]="contact.Gender"
+              type="radio"
+              id="male"
+              name="Gender"
+              value="male"
+            />
+            <label for="male">Male</label> &nbsp;&nbsp; &nbsp;&nbsp;
+            <input
+              formControlName="Gender"
+              [(ngModel)]="contact.Gender"
+              type="radio"
+              id="female"
+              name="Gender"
+              value="female"
+            />
+            <label for="female">Female</label>
+          </div>
+
+          <select
+            style="color: #c5ecfd"
+            class="input"
+            name="subject"
+            id="subject"
+          >
+            <option style="color: black" disabled selected value="">
+              Select an Item
+            </option>
+            <option style="color: black" value="issue">Report an Issue</option>
+            <option style="color: black" value="feedback">Feedback</option>
+            <option style="color: black" value="other">Other</option>
+          </select>
+        </div>
+        <div class="msg">
+          <textarea
+            formControlName="Message"
+            [(ngModel)]="contact.Message"
+            placeholder="Write your message to us..."
+          ></textarea>
+          <small
+            *ngIf="
+              (contactform.get('Message')?.touched ||
+                contactform.get('Message')?.dirty) &&
+              contactform.get('Message')?.invalid
+            "
+            class="text-danger"
+            >Please enter your message to us</small
+          >
+        </div>
+      </div>
+      <div style="margin-left: 30%" class="row p-3">
+        <div class="col-6 offset-3">
+          <div class="d-grid">
+            <button
+              [disabled]="contactform.invalid"
+              type="submit"
+              class="btn btn-primary"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
