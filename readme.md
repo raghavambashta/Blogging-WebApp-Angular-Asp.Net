@@ -6,6 +6,8 @@ Welome to "Blogger" - a web app for blogging.
 
 This web app is made using Angular 14 and Asp.Net WebApi.
 
+Do checkout the Asp.Net Core Web App (Model-View-Controller) version of this project at https://github.com/raghavambashta/Blogging-WebApp-MVC
+
 ## Features:
 
 1. Create user, login and logout
